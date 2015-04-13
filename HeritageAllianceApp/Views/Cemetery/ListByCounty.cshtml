@@ -1,0 +1,19 @@
+﻿@model ICollection<HeritageAllianceApp.Models.Cemetery>
+
+@{
+    ViewBag.Title = "Cemetery List";
+}
+
+<h2>Here are the cemeteries in @ViewBag.County County, @ViewBag.State</h2>
+
+<ul>
+    @{
+        foreach (var cem in Model)
+        {
+            string linkText = (cem.CemeteryName);
+            <li>@Html.ActionLink(linkText, "ListDeceased", new { id = cem.CemeteryId })</li>
+        }
+    }
+</ul>
+
+@Html.ActionLink("Back to County List", "CountyList", "Location")

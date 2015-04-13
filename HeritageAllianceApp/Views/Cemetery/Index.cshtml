@@ -1,0 +1,19 @@
+﻿@model ICollection<HeritageAllianceApp.Models.Cemetery>
+
+@{
+    ViewBag.Title = "Cemeteries";
+}
+
+<h2>Here is a list of all cemeteries</h2>
+
+<ul>
+    @{
+        foreach (var cem in Model)
+        {
+            string linkText = (cem.CemeteryName);
+            <li>@Html.ActionLink(linkText, "ListDeceased", new { id = cem.CemeteryId })</li>
+        }
+    }
+</ul>
+
+@Html.ActionLink("Back to Home", "Index", "Home")

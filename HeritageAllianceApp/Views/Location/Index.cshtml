@@ -1,0 +1,18 @@
+﻿@model IEnumerable<HeritageAllianceApp.Models.Location>
+
+@{
+    ViewBag.Title = "Locations";
+}
+
+<h2>Choose one of the following:</h2>
+
+<ul>
+    <li>
+        @Html.ActionLink("City List", "CityList")        
+    </li>
+    <li>
+        @Html.ActionLink("County List", "CountyList")        
+    </li>
+</ul>
+
+@Html.ActionLink("Back to Home", "Index", "Home")

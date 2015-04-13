@@ -1,0 +1,19 @@
+﻿@model ICollection<HeritageAllianceApp.Models.LocationHandler>
+
+@{
+    ViewBag.Title = "City List";
+}
+
+<h2>Here is a list of cities</h2>
+
+<ul>
+    @{        
+        foreach (var loc in Model)
+        {
+            string linkText = (loc.City + ", " + loc.State);
+            <li>@Html.ActionLink(linkText, "ListByCity", "Cemetery", new { city = loc.City, state = loc.State }, new { })</li>          
+        }
+    }
+</ul>
+
+@Html.ActionLink("Back to Location Menu", "Index")

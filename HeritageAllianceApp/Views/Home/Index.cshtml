@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                This site contains a database listing of cemetery enumerations for our region.
+            </p>
+        </div>
+    </section>
+}
+<h3>To locate a cemetery choose one of the following:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>By Name</h5>
+        This will display a listing of all cemeteries in the database by their name.
+        @Html.ActionLink("Get List", "Index", "Cemetery")        
+    </li>
+
+    <li class="two">
+        <h5>By Location</h5>
+        This will display a listing of all cemeteries in the database by their location.
+        @Html.ActionLink("Get List", "Index", "Location")
+        
+    </li>
+</ol>
