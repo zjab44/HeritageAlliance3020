@@ -4,11 +4,8 @@
     ViewBag.Title = "ListDeceased";
 }
 
-<h2>ListDeceased</h2>
+<h2>Here is the listing for @ViewBag.CemeteryName</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table>
     <tr>
         <th>
@@ -31,22 +28,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LocationWithinRow)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StoneDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TypeOfBurial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MarkerText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MarkerSymbols)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CemeteryId)
-        </th>
+        </th>        
         <th></th>
     </tr>
 
@@ -72,26 +54,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LocationWithinRow)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoneDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TypeOfBurial)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MarkerText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MarkerSymbols)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CemeteryId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DeceasedId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DeceasedId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DeceasedId })
+        </td>        
+        <td>            
+            @Html.ActionLink("Details", "Details", "Deceased", new { id=item.DeceasedId }, null)
         </td>
     </tr>
 }

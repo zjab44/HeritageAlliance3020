@@ -1,0 +1,99 @@
+﻿@model HeritageAllianceApp.Models.Deceased
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Deceased</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MiddleName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MiddleName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateOfBirth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateOfDeath)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfDeath)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RowNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RowNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LocationWithinRow)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LocationWithinRow)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StoneDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StoneDescription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TypeOfBurial)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeOfBurial)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MarkerText)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MarkerText)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MarkerSymbols)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MarkerSymbols)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CemeteryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CemeteryId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.DeceasedId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

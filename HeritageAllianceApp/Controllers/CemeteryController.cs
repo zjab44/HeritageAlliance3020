@@ -43,17 +43,15 @@ namespace HeritageAllianceApp.Controllers
 
         public ActionResult ListDeceased(int id)
         {
+            Cemetery c = _db.Cemeteries.Find(id);
             var model = _db.Deceased
                 .Where(d => d.CemeteryId == id)
                 .OrderBy(d => d.LastName)
-                .ThenBy(d => d.FirstName)
                 .ToList();            
-            ViewBag.CemeteryName = _db.Cemeteries
-                .Where(c => c.CemeteryId == id)
-                .Select(c => c.CemeteryName);
+            ViewBag.CemeteryName = c.CemeteryName;
             return View(model);
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             _db.Dispose();

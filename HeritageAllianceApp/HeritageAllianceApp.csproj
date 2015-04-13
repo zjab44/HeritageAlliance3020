@@ -183,6 +183,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CemeteryController.cs" />
+    <Compile Include="Controllers\DeceasedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -261,6 +262,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\heritagealliance.pubxml" />
+    <Content Include="Views\Deceased\Details.cshtml" />
     <Resource Include="RawData\echstones.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
