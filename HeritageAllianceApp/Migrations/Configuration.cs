@@ -42,7 +42,7 @@ namespace HeritageAllianceApp.Migrations
                             GPSCoordinates = "36d17.782N|82d28.092W",
                             Deceased = echDeceased
                         },
-                        new Cemetery { CemeteryName = "Test Cemetery", Street1 = "123 Test Lane" }
+                        new Cemetery { CemeteryName = "Test Cemetery", Street1 = "123 Test Lane", GPSCoordinates = "36d18.183N|82d21.100W", }
                     }
                 }
             );                      

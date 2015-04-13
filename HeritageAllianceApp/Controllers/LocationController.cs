@@ -37,6 +37,13 @@ namespace HeritageAllianceApp.Controllers
             return View(model);
         }
 
+        public ActionResult MapList()
+        {
+            var model = _db.Cemeteries
+                .ToList();
+            return View(model);
+        }
+
         protected override void Dispose(bool disposing)
         {
             _db.Dispose(); 

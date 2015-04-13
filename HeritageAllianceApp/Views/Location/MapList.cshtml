@@ -1,0 +1,114 @@
+﻿@model ICollection<HeritageAllianceApp.Models.Cemetery>
+@using HeritageAllianceApp.Models
+
+@{
+    ViewBag.Title = "Cemetery Map";
+ }
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Here is a map of the cemeteries.</h1>
+                <h2>Click a marker to get the name of the cemetery and a link to the marker listing.</h2>            
+            </hgroup>        
+        </div>
+    </section>
+}
+<style>
+    html, body, #map-canvas {
+        height: 600px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+
+@{       
+    List<Cemetery> GPSCems = new List<Cemetery>();
+
+    foreach (var cem in Model)
+    {
+        if (cem.GPSCoordinates != null)
+        {
+            GPSCems.Add(new Cemetery 
+                { 
+                    CemeteryId = cem.CemeteryId, 
+                    CemeteryName = cem.CemeteryName, 
+                    Street1 = cem.Street1, 
+                    GPSCoordinates = cem.GPSCoordinates 
+                });                
+        }            
+    }
+
+    foreach (var cem in GPSCems)
+    {
+        cem.LocationId = 0;
+        cem.Deceased = null;
+    }
+    
+    var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(GPSCems);  
+}
+
+<script>
+
+    function initialize() {
+                
+        var markersJson = @Html.Raw(json);
+       
+        var mapOptions = {
+            zoom: 8,
+            center: new google.maps.LatLng(36, -82)
+        };
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+        var infowindow = new google.maps.InfoWindow();
+        var contentholder = [];
+        var thismarker;        
+
+        for(i = 0; i < markersJson.length; i++)
+        {
+            var thisLatlng = parseGPS(markersJson[i].GPSCoordinates);
+
+            contentholder[i] = '<strong>' + markersJson[i].CemeteryName + '</strong><br><a href="/Cemetery/ListDeceased/' + markersJson[i].CemeteryId + '">Go to listing...</a>';            
+                                   
+            thismarker = new google.maps.Marker({
+                position: thisLatlng,
+                map: map
+            });
+
+            google.maps.event.addDomListener(thismarker, 'click', (function(thismarker, i) 
+            { 
+                return function() { 
+                    infowindow.setContent(contentholder[i]);                    
+                    infowindow.open(map, thismarker);                    
+                } 
+            })(thismarker, i));
+        }
+    }
+
+    function parseGPS(gpsString) {
+
+        var lat, lon, latm = 1, lonm = 1;
+        var coords = gpsString.split("|");
+        var rlat = coords[0].split("d");
+        var rlon = coords[1].split("d");
+        if(rlat[1].toUpperCase().charAt(rlat[1].length - 1) == 'S')
+            latm = -1;
+        if(rlon[1].toUpperCase().charAt(rlon[1].length - 1) == 'W')
+            lonm = -1;
+        rlat[1] = rlat[1].substr(0, 6) * 60 / 3600;
+        rlon[1] = rlon[1].substr(0, 6) * 60 / 3600;
+        lat = (parseFloat(rlat[0]) + parseFloat(rlat[1])) * latm;
+        lon = (parseFloat(rlon[0]) + parseFloat(rlon[1])) * lonm;
+
+        return new google.maps.LatLng(lat, lon);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+  
+<div id="map-canvas"></div>
+

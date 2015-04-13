@@ -263,6 +263,7 @@
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\heritagealliance.pubxml" />
     <Content Include="Views\Deceased\Details.cshtml" />
+    <Content Include="Views\Location\MapList.cshtml" />
     <Resource Include="RawData\echstones.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
