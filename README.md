@@ -3,7 +3,7 @@ Heritage Alliance C# Application
 --------------------------------------
 Current Working Branch:
 
-      finalDBStructure
+      master
 
 Notes:
 
