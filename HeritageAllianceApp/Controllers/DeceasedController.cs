@@ -22,7 +22,7 @@ namespace HeritageAllianceApp.Controllers
             if (d == null)
             {
                 return HttpNotFound();
-            }                            
+            }            
             return View(d);
         }
 

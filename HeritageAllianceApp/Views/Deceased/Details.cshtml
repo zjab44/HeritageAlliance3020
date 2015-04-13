@@ -84,16 +84,8 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.MarkerSymbols)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CemeteryId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CemeteryId)
-    </div>
+    </div>    
 </fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.DeceasedId }) |
-    @Html.ActionLink("Back to List", "Index")
+<p>    
+    @Html.ActionLink("Back to Listing", "ListDeceased", "Cemetery", new { id = Model.CemeteryId }, null)
 </p>
