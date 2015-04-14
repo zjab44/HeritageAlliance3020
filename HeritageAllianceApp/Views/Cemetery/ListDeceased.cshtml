@@ -4,6 +4,17 @@
     ViewBag.Title = "ListDeceased";
 }
 
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Here is the marker listing for @ViewBag.CemeteryName</h1>
+                <br />
+                <h2>Click the 'Details' link next to a listing for more information.</h2>
+            </hgroup>
+        </div>
+    </section>
+}
 <h2>Here is the listing for @ViewBag.CemeteryName</h2>
 
 <table>
@@ -62,3 +73,5 @@
 }
 
 </table>
+<p><strong><a href="javascript:history.back()">Back to Cemeteries</a></strong></p>
+

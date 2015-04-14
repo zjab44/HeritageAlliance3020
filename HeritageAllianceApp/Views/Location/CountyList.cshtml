@@ -4,7 +4,17 @@
     ViewBag.Title = "County List";
 }
 
-<h2>Here is a list of Counties</h2>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Here is a list of counties.</h1>
+                <br />
+                <h2>Select a county to view all cemeteries in that county.</h2>
+            </hgroup>
+        </div>
+    </section>
+}
 
 <ul>
     @{

@@ -12,7 +12,15 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    @{ //<p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                        string imgpath = "<img src=" + AppDomain.CurrentDomain.BaseDirectory + "Images/heritagelogoblack.png"; 
+                        
+                    }
+                    <p class="site-title">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="@Url.Content("~/Images/heritagelogoblack.png")" height="80" width="153" />
+                        </a>
+                    </p>
                 </div>
                 <div class="float-right">
                     <section id="login">

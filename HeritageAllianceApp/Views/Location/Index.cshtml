@@ -4,11 +4,21 @@
     ViewBag.Title = "Locations";
 }
 
-<h2>Choose one of the following:</h2>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Browse Cemeteries by Location.</h1>
+                <br />
+                <h2>Choose one of the following options.</h2>
+            </hgroup>
+        </div>
+    </section>
+}
 
 <ul>
     <li>
-        @Html.ActionLink("City List", "CityList")        
+        @Html.ActionLink("City List", "CityList")
     </li>
     <li>
         @Html.ActionLink("County List", "CountyList")        
