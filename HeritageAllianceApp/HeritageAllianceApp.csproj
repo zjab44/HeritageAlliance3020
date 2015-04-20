@@ -184,6 +184,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CemeteryController.cs" />
     <Compile Include="Controllers\DeceasedController.cs" />
+    <Compile Include="Controllers\FamilyMemberController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -197,7 +198,8 @@
     <Compile Include="Models\Deceased.cs" />
     <Compile Include="Models\FamilyMember.cs" />
     <Compile Include="Models\HeritageAllianceAppDb.cs" />
-    <Compile Include="Models\Link.cs" />
+    <Compile Include="Models\RecordLink.cs" />
+    <Compile Include="Models\InformationLink.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationHandler.cs" />
     <Compile Include="Models\Record.cs" />
@@ -266,9 +268,9 @@
     <Content Include="Images\heritagelogoblack.png" />
     <Content Include="Views\Deceased\Details.cshtml" />
     <Content Include="Views\Location\MapList.cshtml" />
-    <Resource Include="RawData\echstones.csv">
+    <EmbeddedResource Include="Migrations\echstones.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </EmbeddedResource>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -330,6 +332,11 @@
     <Content Include="Views\Cemetery\ListByCity.cshtml" />
     <Content Include="Views\Cemetery\ListByCounty.cshtml" />
     <Content Include="Views\Cemetery\ListDeceased.cshtml" />
+    <Content Include="Views\FamilyMember\Index.cshtml" />
+    <Content Include="Views\FamilyMember\Details.cshtml" />
+    <Content Include="Views\FamilyMember\Create.cshtml" />
+    <Content Include="Views\FamilyMember\Edit.cshtml" />
+    <Content Include="Views\FamilyMember\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

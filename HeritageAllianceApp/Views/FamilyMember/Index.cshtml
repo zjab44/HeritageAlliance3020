@@ -1,23 +1,19 @@
-﻿@model IEnumerable<HeritageAllianceApp.Models.Deceased>
+﻿@model IEnumerable<HeritageAllianceApp.Models.FamilyMember>
 
 @{
-    ViewBag.Title = "Marker Listing";
+    ViewBag.Title = "Index";
 }
 
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>Here is the marker listing for @ViewBag.CemeteryName</h1>
-                <br />
-                <h2>Click the 'Details' link next to a listing for more information.</h2>
-            </hgroup>
-        </div>
-    </section>
-}
+<h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table>
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Relationship)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
@@ -34,16 +30,16 @@
             @Html.DisplayNameFor(model => model.DateOfDeath)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RowNumber)
+            @Html.DisplayNameFor(model => model.Deceased.FirstName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationWithinRow)
-        </th>        
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Relationship)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
@@ -60,17 +56,14 @@
             @Html.DisplayFor(modelItem => item.DateOfDeath)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RowNumber)
+            @Html.DisplayFor(modelItem => item.Deceased.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LocationWithinRow)
-        </td>        
-        <td>            
-            @Html.ActionLink("Details", "Details", "Deceased", new { id=item.DeceasedId }, null)
+            @Html.ActionLink("Edit", "Edit", new { id=item.FamilyMemberId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FamilyMemberId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FamilyMemberId })
         </td>
     </tr>
 }
 
 </table>
-<p><strong><a href="javascript:history.back()">Back to Cemeteries</a></strong></p>
-

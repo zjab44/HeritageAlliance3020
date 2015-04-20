@@ -20,7 +20,7 @@ namespace HeritageAllianceApp.Models
 
         [Required]
         [Column("Biographical_Information")]
-        public Byte[] BiographicalInfo { get; set; }
+        public string BiographicalInfo { get; set; }
 
         [Required]
         [Column("Date_Entered")]
@@ -31,12 +31,18 @@ namespace HeritageAllianceApp.Models
         [Column("Entered_By")]
         public string EnteredBy { get; set; }
 
-        [Column("Person_Id")]
-        public int PersonId { get; set; }
+        [Column("Deceased_Id")]
+        public int DeceasedId { get; set; }
 
-        [ForeignKey("PersonId")]
-        public Deceased Deceased { get; set; }
+        [ForeignKey("DeceasedId")]
+        public Deceased Deceased { get; set; }        
 
-        public Link Link { get; set; }
+        [Column("Family_Member_Id")]
+        public int? FamilyMemberId { get; set; }
+
+        [ForeignKey("FamilyMemberId")]
+        public FamilyMember FamilyMember { get; set; }
+
+        public virtual InformationLink InformationLink { get; set; }
     }
 }

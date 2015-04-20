@@ -20,7 +20,7 @@ namespace HeritageAllianceApp.Models
 
         [Required]
         [Column("Record")]
-        public Byte[] RecordR { get; set; }
+        public string RecordR { get; set; }
 
         [Required]
         [Column("Date_Entered")]
@@ -36,5 +36,7 @@ namespace HeritageAllianceApp.Models
 
         [ForeignKey("DeceasedId")]
         public Deceased Deceased { get; set; }
+
+        public virtual RecordLink RecordLink { get; set; }
     }
 }

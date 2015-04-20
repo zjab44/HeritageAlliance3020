@@ -1,4 +1,6 @@
 ﻿@model HeritageAllianceApp.Models.Deceased
+@using HeritageAllianceApp.Models
+@{ HeritageAllianceAppDb _db = new HeritageAllianceAppDb(); }
 
 @{
     ViewBag.Title = "Details";
@@ -8,83 +10,312 @@
 
 <fieldset>
     <legend>Deceased</legend>
+    <table>
+        <tr>
+            <th class ="display-label">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayFor(model => model.FirstName)
+            </td>
+            <td class="display-label">
+                @Html.DisplayFor(model => model.MiddleName)
+            </td>
+            <td class="display-label">
+                @Html.DisplayFor(model => model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.DateOfDeath)
+            </th>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayFor(model => model.DateOfBirth)
+            </td>
+            <td class="display-label">
+                @Html.DisplayFor(model => model.DateOfDeath)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.RowNumber)
+            </th>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.LocationWithinRow)
+            </th>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.TypeOfBurial)
+            </th>
+        </tr>
+        <tr>
+            <td class="display-label">
+                @Html.DisplayFor(model => model.RowNumber)
+            </td>
+            <td class="display-label">
+                @Html.DisplayFor(model => model.LocationWithinRow)
+            </td>
+            <td class="display-label">
+                @Html.DisplayFor(model => model.TypeOfBurial)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.StoneDescription)
+            </th>
+        </tr>
+        <tr>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.StoneDescription)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.MarkerText)
+            </th>
+        </tr>
+        <tr>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.MarkerText)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.MarkerSymbols)
+            </th>
+        </tr>
+        <tr>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.MarkerSymbols)
+            </td>
+        </tr>
+    </table>
+    
+    <h2>Deceased Relatives</h2>
+    @if (ViewBag.Relatives.Count == 0)
+    {
+        <p>No deceased relatives found in database.</p>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th class="display-label">
+                    @Html.DisplayNameFor(Deceased => Deceased.FirstName)
+                </th>
+                <th class="display-label">
+                    @Html.DisplayNameFor(Deceased => Deceased.MiddleName)
+                </th>
+                <th class="display-label">
+                    @Html.DisplayNameFor(Deceased => Deceased.LastName)
+                </th>
+                <th class="display-label">
+                    Relationship
+                </th>
+                <th class="display-label">
+                    Cemetery Name
+                </th>
+                <th class="display-label">
+                </th>
+            </tr>
+            @foreach (Related rel in ViewBag.Relatives)
+            {
+                Deceased dec = _db.Deceased.Find(rel.DeceasedRelativeId);
+                Cemetery cem = _db.Cemeteries.Find(dec.CemeteryId);
+                <tr>
+                    <td class="display-field">
+                        @Html.DisplayFor(Deceased => dec.FirstName)
+                    </td>
+                    <td class="display-field">
+                        @Html.DisplayFor(Deceased => dec.MiddleName)
+                    </td>
+                    <td class="display-field">
+                        @Html.DisplayFor(Deceased => dec.LastName)
+                    </td>
+                    <td class="display-field">
+                        @Html.DisplayFor(Related => rel.Relationship)
+                    </td>
+                    <td class="display-field">
+                        @Html.DisplayFor(Cemetery => cem.CemeteryName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Further Info...", "Details", new { id = dec.DeceasedId })
+                    </td>
+                </tr>
+            }
+        </table>
+    } 
+    
+    
+    <h2>Family Members</h2>
+    @if (ViewBag.FamilyMembers.Count == 0)
+    {
+        <p>No family members found in database.</p>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th class="display-label">
+                    @Html.DisplayNameFor(FamilyMember => FamilyMember.FirstName)
+                </th>
+                <th class="display-label">
+                    @Html.DisplayNameFor(FamilyMember => FamilyMember.MiddleName)
+                </th>
+                <th class="display-label">
+                    @Html.DisplayNameFor(FamilyMember => FamilyMember.LastName)
+                </th>
+                <th class="display-label">
+                    Relationship
+                </th>
+                <th class="display-label">
+                </th>
+            </tr>
+            @foreach (FamilyMember fam in ViewBag.FamilyMembers)
+            {
+                <tr>
+                    <td class="display-field">
+                        @Html.DisplayFor(FamilyMember => fam.FirstName)
+                    </td>
+                    <td class="display-field">
+                        @Html.DisplayFor(FamilyMember => fam.MiddleName)
+                    </td>
+                    <td class="display-field">
+                        @Html.DisplayFor(FamilyMember => fam.LastName)
+                    </td>
+                    <td class="display-field">
+                        @Html.DisplayFor(FamilyMember => fam.Relationship)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Further Info...", "Details", "FamilyMember", new { id = fam.FamilyMemberId }, null)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.FirstName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.FirstName)
-    </div>
+    <h2>Records</h2>
+    @if (ViewBag.Records.Count == 0)
+    {
+        <p>No records found in database.</p>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th class="display-label">
+                    Record Type
+                </th>
+                <th class="display-label">
+                    Record
+                </th>
+                <th class="display-label">
+                </th>
+                <th class="display-label">
+                    External Link
+                </th>
+            </tr>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.MiddleName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.MiddleName)
-    </div>
+            @{ List<RecordLink> rll = ViewBag.RecordLinks; }
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.LastName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.LastName)
-    </div>
+            @foreach (Record rec in ViewBag.Records)
+            {
+                <tr>
+                    <td class="display-field">
+                        @Html.DisplayFor(Record => rec.RecordType)
+                    </td>
+                    <td class="display-field">
+                        @Html.DisplayFor(Record => rec.RecordR)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Further Info...", "Details", "Record", new { id = rec.RecordId }, null)
+                    </td>
+                    <td>
+                        @{
+                            RecordLink reclink = null;
+                            foreach (RecordLink rl in rll)
+                            {
+                                if (rl == null) { continue; }
+                                if (rl.RecordId == rec.RecordId)
+                                {
+                                    reclink = rl;
+                                    <a href="@reclink.URL">@reclink.LinkTo</a>
+                                }
+                            }
+                        }                                                
+                    </td>
+                </tr>
+            }
+        </table>
+     }
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DateOfBirth)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateOfBirth)
-    </div>
+    <h2>Biographical Information</h2>
+    @if (ViewBag.BioInformation.Count == 0)
+    {
+        <p>No biographical information found in database.</p>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th class="display-label">
+                    Biographical Information Type
+                </th>
+                <th class="display-label">
+                    Biographical Information
+                </th>
+                <th class="display-label">
+                </th>
+                <th class="display-label">
+                    External Link
+                </th>
+            </tr>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DateOfDeath)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateOfDeath)
-    </div>
+            @{ List<InformationLink> ill = ViewBag.InfoLinks; }            
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.RowNumber)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.RowNumber)
-    </div>
+            @foreach (BiographicalInformation bio in ViewBag.BioInformation)
+            {
+                <tr>
+                    <td class="display-field">
+                        @Html.DisplayFor(BiographicalInformation => bio.BiographicalInformationType)
+                    </td>
+                    <td class="display-field">
+                        @Html.DisplayFor(BiographicalInformation => bio.BiographicalInfo)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Further Info...", "Details", "BiographicalInformation", new { id = bio.BiographicalInformationId }, null)
+                    </td>
+                    <td>                       
+                        @{
+                            InformationLink infolink = null;
+                            foreach (InformationLink inl in ill)
+                            {
+                                if (inl == null) { continue; }
+                                if (inl.InformationId == bio.BiographicalInformationId)
+                                {
+                                    infolink = inl;
+                                    <a href="@infolink.URL">@infolink.LinkTo</a>
+                                }
+                            }
+                        }                                        
+                    </td>
+                </tr>
+            }
+        </table>
+    }
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.LocationWithinRow)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.LocationWithinRow)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.StoneDescription)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.StoneDescription)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.TypeOfBurial)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.TypeOfBurial)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.MarkerText)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.MarkerText)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.MarkerSymbols)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.MarkerSymbols)
-    </div>    
 </fieldset>
 <p>    
     @Html.ActionLink("Back to Listing", "ListDeceased", "Cemetery", new { id = Model.CemeteryId }, null)

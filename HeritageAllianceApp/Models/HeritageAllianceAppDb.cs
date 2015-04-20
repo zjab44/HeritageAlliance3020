@@ -21,7 +21,8 @@ namespace HeritageAllianceApp.Models
         public DbSet<FamilyMember> FamilyMembers { get; set; }
         public DbSet<BiographicalInformation> BiographicalInformation { get; set; }
         public DbSet<Record> Records { get; set; }
-        public DbSet<Link> Links { get; set; }
+        public DbSet<InformationLink> InformationLinks { get; set; }
+        public DbSet<RecordLink> RecordLinks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -58,18 +59,43 @@ namespace HeritageAllianceApp.Models
                         .WithMany(d => d.BiographicalInformation)
                         .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<BiographicalInformation>()
+                        .HasOptional(b => b.FamilyMember)
+                        .WithMany(f => f.BiographicalInformation)
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<BiographicalInformation>()
+                        .HasOptional(b => b.InformationLink)
+                        .WithOptionalDependent()
+                        .Map(b => b.MapKey("Information_Link_Id"))
+                        .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Record>()
                         .HasRequired(r => r.Deceased)
                         .WithMany(d => d.Records)
                         .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Link>()
-                        .HasKey(l => l.InformationId);
-
-            modelBuilder.Entity<Link>()
-                        .HasRequired(l => l.BiographicalInformation)
-                        .WithOptional(b => b.Link)
+            modelBuilder.Entity<Record>()
+                        .HasOptional(r => r.RecordLink)
+                        .WithOptionalDependent()
+                        .Map(b => b.MapKey("Record_Link_Id"))
                         .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<InformationLink>()
+            //            .HasKey(i => i.InformationId);
+
+            //modelBuilder.Entity<RecordLink>()
+            //            .HasKey(r => r.RecordId);
+
+            //modelBuilder.Entity<InformationLink>()
+            //            .HasRequired(i => i.BiographicalInformation)
+            //            .WithOptional(b => b.InformationLink)
+            //            .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<RecordLink>()
+            //            .HasRequired(r => r.Record)
+            //            .WithOptional(r => r.RecordLink)
+            //            .WillCascadeOnDelete(false);
         }
     }
 }

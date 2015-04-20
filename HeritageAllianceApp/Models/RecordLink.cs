@@ -7,11 +7,11 @@ using System.Web;
 
 namespace HeritageAllianceApp.Models
 {
-    public class Link
+    public class RecordLink
     {
         [Key]
-        [Column("Link_Id")]
-        public int LinkId { get; set; }
+        [Column("Record_Link_Id")]
+        public int RecordLinkId { get; set; }
 
         [Required]
         public string URL { get; set; }
@@ -20,11 +20,11 @@ namespace HeritageAllianceApp.Models
         [MaxLength(64)]
         [Column("Link_To")]
         public string LinkTo { get; set; }
+                
+        [Column("Record_Id")]
+        public int RecordId { get; set; }
 
-        [Column("Information_Id")]
-        public int InformationId { get; set; }
-
-        [ForeignKey("InformationId")]
-        public BiographicalInformation BiographicalInformation { get; set; }
+        [ForeignKey("RecordId")]
+        public Record Record { get; set; }
     }
 }

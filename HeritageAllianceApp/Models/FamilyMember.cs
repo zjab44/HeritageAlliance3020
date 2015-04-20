@@ -10,8 +10,8 @@ namespace HeritageAllianceApp.Models
     public class FamilyMember
     {
         [Key]
-        [Column("Member_Id")]
-        public int MemberId { get; set; }
+        [Column("Family_Member_Id")]
+        public int FamilyMemberId { get; set; }
 
         [Required]
         [MaxLength(32)]
@@ -44,5 +44,7 @@ namespace HeritageAllianceApp.Models
 
         [ForeignKey("DeceasedId")]
         public Deceased Deceased { get; set; }
+
+        public virtual ICollection<BiographicalInformation> BiographicalInformation { get; set; }
     }
 }

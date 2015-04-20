@@ -53,7 +53,7 @@ namespace HeritageAllianceApp.Migrations
         {
             List<Deceased> deceasedList = new List<Deceased>();            
                         
-            var reader = new StreamReader(File.OpenRead(@AppDomain.CurrentDomain.BaseDirectory + "RawData/echstones.csv"));
+            var reader = new StreamReader(File.OpenRead(@AppDomain.CurrentDomain.BaseDirectory + "Migrations/echstones.csv"));
             while (!reader.EndOfStream)           
             {
                 var line = reader.ReadLine();
@@ -61,8 +61,8 @@ namespace HeritageAllianceApp.Migrations
 
                 deceasedList.Add(new Deceased
                 {
-                    FirstName = values[2].ToString(),
-                    LastName = values[3].ToString(),
+                    FirstName = values[3].ToString(),
+                    LastName = values[2].ToString(),
                     DateOfBirth = values[4].ToString(),
                     DateOfDeath = values[5].ToString(),
                     RowNumber = values[0].ToString(),
