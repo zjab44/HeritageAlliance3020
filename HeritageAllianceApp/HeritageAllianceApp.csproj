@@ -268,7 +268,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <None Include="Properties\PublishProfiles\heritagealliance.pubxml" />
     <Content Include="Images\heritagelogoblack.png" />
     <Content Include="Views\Deceased\Details.cshtml" />
     <Content Include="Views\Location\MapList.cshtml" />
