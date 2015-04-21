@@ -38,9 +38,10 @@ namespace HeritageAllianceApp.Migrations
                         new Cemetery 
                         { 
                             CemeteryName = "Evergreen - College Hill", 
-                            Street1 = "End of Cemetery Lane", 
-                            GPSCoordinates = "36d17.782N|82d28.092W",
-                            Deceased = echDeceased
+                            Street1 = "End of Cemetery Lane",
+                            GPSCoordinates = "36d17.782N|82d28.092W"
+                            //GPSCoordinates = "36d17.782N|82d28.092W",
+                            //Deceased = echDeceased
                         },
                         new Cemetery { CemeteryName = "Test Cemetery", Street1 = "123 Test Lane", GPSCoordinates = "36d18.183N|82d21.100W" },
                         new Cemetery { CemeteryName = "Blair Cemetery", Street1 = "Arnold Rd - 8/10th mi from Cherokee Rd", GPSCoordinates = "36d13.070N|82d27.150W" }

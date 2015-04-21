@@ -41,7 +41,7 @@ namespace HeritageAllianceApp.Models
 
         [Column("Cemetery_Notes")]
         [DisplayName("Cemetery Notes")]
-        public Byte[] CemeteryNotes { get; set; }
+        public string CemeteryNotes { get; set; }
 
         [Column("Location_Id")]
         [DisplayName("Location Id")]
