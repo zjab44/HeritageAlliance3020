@@ -182,11 +182,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BiographicalInformationController.cs" />
     <Compile Include="Controllers\CemeteryController.cs" />
     <Compile Include="Controllers\DeceasedController.cs" />
     <Compile Include="Controllers\FamilyMemberController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\RecordController.cs" />
+    <Compile Include="Controllers\RelatedController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -337,6 +341,38 @@
     <Content Include="Views\FamilyMember\Create.cshtml" />
     <Content Include="Views\FamilyMember\Edit.cshtml" />
     <Content Include="Views\FamilyMember\Delete.cshtml" />
+    <Content Include="Views\BiographicalInformation\Index.cshtml" />
+    <Content Include="Views\BiographicalInformation\Details.cshtml" />
+    <Content Include="Views\BiographicalInformation\Create.cshtml" />
+    <Content Include="Views\BiographicalInformation\Edit.cshtml" />
+    <Content Include="Views\BiographicalInformation\Delete.cshtml" />
+    <Content Include="Views\Record\Index.cshtml" />
+    <Content Include="Views\Record\Details.cshtml" />
+    <Content Include="Views\Record\Create.cshtml" />
+    <Content Include="Views\Record\Edit.cshtml" />
+    <Content Include="Views\Record\Delete.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Location\Admin.cshtml" />
+    <Content Include="Views\Location\Details.cshtml" />
+    <Content Include="Views\Location\Create.cshtml" />
+    <Content Include="Views\Location\Edit.cshtml" />
+    <Content Include="Views\Location\Delete.cshtml" />
+    <Content Include="Views\Cemetery\Details.cshtml" />
+    <Content Include="Views\Cemetery\Create.cshtml" />
+    <Content Include="Views\Cemetery\Edit.cshtml" />
+    <Content Include="Views\Cemetery\Delete.cshtml" />
+    <Content Include="Views\Cemetery\Admin.cshtml" />
+    <Content Include="Views\Deceased\Create.cshtml" />
+    <Content Include="Views\Deceased\Edit.cshtml" />
+    <Content Include="Views\Deceased\Delete.cshtml" />
+    <Content Include="Views\Deceased\Admin.cshtml" />
+    <Content Include="Views\Related\Index.cshtml" />
+    <Content Include="Views\Related\Details.cshtml" />
+    <Content Include="Views\Related\Create.cshtml" />
+    <Content Include="Views\Related\Edit.cshtml" />
+    <Content Include="Views\Related\Delete.cshtml" />
+    <Content Include="Views\Related\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

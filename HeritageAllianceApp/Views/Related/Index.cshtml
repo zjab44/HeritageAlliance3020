@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HeritageAllianceApp.Models.Related>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Deceased.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeceasedRelative.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Relationship)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deceased.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeceasedRelative.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Relationship)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RelatedId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RelatedId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RelatedId })
+        </td>
+    </tr>
+}
+
+</table>

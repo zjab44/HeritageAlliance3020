@@ -216,10 +216,10 @@
         <table>
             <tr>
                 <th class="display-label">
-                    Record Type
+                    Type
                 </th>
                 <th class="display-label">
-                    Record
+                    Description
                 </th>
                 <th class="display-label">
                 </th>
@@ -237,7 +237,7 @@
                         @Html.DisplayFor(Record => rec.RecordType)
                     </td>
                     <td class="display-field">
-                        @Html.DisplayFor(Record => rec.RecordR)
+                        @Html.DisplayFor(Record => rec.RecordDescription)
                     </td>
                     <td>
                         @Html.ActionLink("Further Info...", "Details", "Record", new { id = rec.RecordId }, null)
@@ -271,10 +271,10 @@
         <table>
             <tr>
                 <th class="display-label">
-                    Biographical Information Type
+                    Type
                 </th>
                 <th class="display-label">
-                    Biographical Information
+                    Description
                 </th>
                 <th class="display-label">
                 </th>
@@ -292,7 +292,7 @@
                         @Html.DisplayFor(BiographicalInformation => bio.BiographicalInformationType)
                     </td>
                     <td class="display-field">
-                        @Html.DisplayFor(BiographicalInformation => bio.BiographicalInfo)
+                        @Html.DisplayFor(BiographicalInformation => bio.BiographicalInfoDescription)
                     </td>
                     <td>
                         @Html.ActionLink("Further Info...", "Details", "BiographicalInformation", new { id = bio.BiographicalInformationId }, null)

@@ -12,7 +12,7 @@ namespace HeritageAllianceApp.Models
     {
         [Key]
         [Column("Deceased_Id")]
-        [DisplayName("Deceased Id")]
+        [DisplayName("Id")]
         public int DeceasedId { get; set; }
 
         [MaxLength(32)]
@@ -48,7 +48,7 @@ namespace HeritageAllianceApp.Models
 
         [Required]
         [MaxLength(4)]
-        [Column("Location Within Row")]
+        [Column("Location_Within_Row")]
         [DisplayName("Marker #")]
         public string LocationWithinRow { get; set; }
 

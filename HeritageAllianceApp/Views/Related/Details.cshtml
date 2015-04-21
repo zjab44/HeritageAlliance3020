@@ -1,0 +1,36 @@
+﻿@model HeritageAllianceApp.Models.Related
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Related</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Deceased.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Deceased.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DeceasedRelative.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DeceasedRelative.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Relationship)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Relationship)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.RelatedId }) |
+    @Html.ActionLink("Back to List", "Admin")
+</p>

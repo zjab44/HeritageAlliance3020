@@ -1,0 +1,124 @@
+﻿@model HeritageAllianceApp.Models.Deceased
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Deceased</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MiddleName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MiddleName)
+            @Html.ValidationMessageFor(model => model.MiddleName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateOfBirth)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOfBirth)
+            @Html.ValidationMessageFor(model => model.DateOfBirth)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateOfDeath)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOfDeath)
+            @Html.ValidationMessageFor(model => model.DateOfDeath)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RowNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RowNumber)
+            @Html.ValidationMessageFor(model => model.RowNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LocationWithinRow)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LocationWithinRow)
+            @Html.ValidationMessageFor(model => model.LocationWithinRow)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StoneDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StoneDescription)
+            @Html.ValidationMessageFor(model => model.StoneDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TypeOfBurial)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TypeOfBurial)
+            @Html.ValidationMessageFor(model => model.TypeOfBurial)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MarkerText)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MarkerText)
+            @Html.ValidationMessageFor(model => model.MarkerText)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MarkerSymbols)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MarkerSymbols)
+            @Html.ValidationMessageFor(model => model.MarkerSymbols)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CemeteryId, "Cemetery")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CemeteryId", "Set Cemetery...")
+            @Html.ValidationMessageFor(model => model.CemeteryId)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Admin")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

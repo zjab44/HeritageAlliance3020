@@ -1,0 +1,57 @@
+﻿@model HeritageAllianceApp.Models.Cemetery
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Cemetery</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CemeteryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CemeteryName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Street1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Street1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Street2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Street2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GPSCoordinates)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GPSCoordinates)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateEstablished)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateEstablished)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location.State)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location.State)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.CemeteryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

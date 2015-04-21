@@ -1,0 +1,50 @@
+﻿@model HeritageAllianceApp.Models.Record
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Record</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RecordType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RecordType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RecordDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RecordDescription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateEntered)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateEntered)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EnteredBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EnteredBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Deceased.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Deceased.FirstName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.RecordId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

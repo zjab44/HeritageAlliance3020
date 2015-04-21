@@ -1,0 +1,57 @@
+﻿@model HeritageAllianceApp.Models.BiographicalInformation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>BiographicalInformation</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BiographicalInformationType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BiographicalInformationType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BiographicalInfoDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BiographicalInfoDescription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateEntered)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateEntered)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EnteredBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EnteredBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Deceased.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Deceased.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FamilyMember.Relationship)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FamilyMember.Relationship)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.BiographicalInformationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

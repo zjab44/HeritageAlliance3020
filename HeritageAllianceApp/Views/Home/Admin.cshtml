@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Admin Panel";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Admin Panel</h1>
+                <br />
+                <h2>Welcome to the Admin Panel.</h2>
+                <h2>Choose a section to administer from the list below.</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<ul>
+    <li>
+        @Html.ActionLink("Locations", "Admin", "Location", null, null)
+    </li>
+    <li>
+        @Html.ActionLink("Cemeteries", "Admin", "Cemetery", null, null)
+    </li>
+    <li>
+        @Html.ActionLink("Deceased", "Admin", "Deceased", null, null)
+    </li>
+    <li>
+        @*@Html.ActionLink("Relatives", "Admin", "Related", null, null)*@
+        Relatives
+    </li>
+    <li>
+        @*@Html.ActionLink("Family Members", "Admin", "Location", null, null)*@
+        Family Members
+    </li>
+    <li>
+        @*@Html.ActionLink("Biographical Information", "Admin", "BiographicalInformation", null, null)*@
+        Biographical Information
+    </li>
+    <li>
+        @*@Html.ActionLink("Records", "Admin", "Record", null, null)*@
+        Records
+    </li>
+    <li>
+        @*@Html.ActionLink("Information Links", "Admin", "InformationLink", null, null)*@
+        Information Links
+    </li>
+    <li>
+        @*@Html.ActionLink("Record Links", "Admin", "RecordLink", null, null)*@
+        Record Links
+    </li>
+</ul>
+

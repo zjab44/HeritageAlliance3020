@@ -1,0 +1,63 @@
+﻿@model IEnumerable<HeritageAllianceApp.Models.BiographicalInformation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BiographicalInformationType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BiographicalInfoDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateEntered)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnteredBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deceased.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FamilyMember.Relationship)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BiographicalInformationType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BiographicalInfoDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateEntered)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnteredBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deceased.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FamilyMember.Relationship)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BiographicalInformationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BiographicalInformationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BiographicalInformationId })
+        </td>
+    </tr>
+}
+
+</table>

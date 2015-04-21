@@ -15,15 +15,21 @@
 <h3>To locate a cemetery choose one of the following:</h3>
 <ol class="round">
     <li class="one">
-        <h5>By Name</h5>
-        This will display a listing of all cemeteries in the database by their name.
-        @Html.ActionLink("Get List", "Index", "Cemetery")        
+        <h5>@Html.ActionLink("By Name", "Index", "Cemetery")</h5>
+        This will display a listing of all cemeteries in the database by their name.               
     </li>
 
     <li class="two">
-        <h5>By Location</h5>
+        <h5>@Html.ActionLink("By Location", "Index", "Location")</h5>
         This will display a listing of all cemeteries in the database by their location.
-        @Html.ActionLink("Get List", "Index", "Location")
-        
+    </li>
+
+    <li class="three">
+        <h5>@Html.ActionLink("By Search", "Index", "Search")</h5>
+        This will display a search engine.
     </li>
 </ol>
+
+<p>
+    @Html.ActionLink("Admin Panel", "Admin")
+</p>

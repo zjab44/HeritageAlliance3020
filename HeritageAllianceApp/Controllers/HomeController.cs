@@ -40,5 +40,10 @@ namespace HeritageAllianceApp.Controllers
         {
             return RedirectToAction("Index", "Cemetery");
         }
+
+        public ActionResult Admin()
+        {
+            return View();
+        }
     }
 }

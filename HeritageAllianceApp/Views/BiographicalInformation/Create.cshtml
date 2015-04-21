@@ -1,0 +1,76 @@
+﻿@model HeritageAllianceApp.Models.BiographicalInformation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>BiographicalInformation</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BiographicalInformationType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BiographicalInformationType)
+            @Html.ValidationMessageFor(model => model.BiographicalInformationType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BiographicalInfoDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BiographicalInfoDescription)
+            @Html.ValidationMessageFor(model => model.BiographicalInfoDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateEntered)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateEntered)
+            @Html.ValidationMessageFor(model => model.DateEntered)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EnteredBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EnteredBy)
+            @Html.ValidationMessageFor(model => model.EnteredBy)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DeceasedId, "Deceased")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("DeceasedId", String.Empty)
+            @Html.ValidationMessageFor(model => model.DeceasedId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FamilyMemberId, "FamilyMember")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("FamilyMemberId", String.Empty)
+            @Html.ValidationMessageFor(model => model.FamilyMemberId)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
